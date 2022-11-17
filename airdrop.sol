@@ -29,7 +29,7 @@ contract AirDrop {
          _;
     }
 
-    function claimAirdrop(IERC1155 _nftContract) isPause public {
+    function claimAirdrop(IERC1155 _nftContract) public isPause {
         require(!claimedAddress[msg.sender],"Already Claimed!");
         _nftContract.safeTransferFrom(address(this), msg.sender, counter, 1, "");
         claimedAddress[msg.sender]=true;
